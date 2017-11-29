@@ -12,7 +12,7 @@ A short intro about the different directories within this repository:
 
 You can find more information about the different functionalities in their folder.
 
-## Why Ark-GO
+## Why Kapu-GO
 GoLang is an open source programming language developed by Google and designed for building fast, simple and reliable software. It is not about theoretical concepts such as monads and virtual inheritance, but more about **hands-on experience**.
 
 Ark-GO is the ARK Ecosystem library client implemented in GOLANG programming language. It implements all most relevant ARK functionalities to help you  **develop efficient, fast and scalable GOLANG applications built upon ARK platform**. It provides also low level access to ARK so you can easily build your application on top of it.
