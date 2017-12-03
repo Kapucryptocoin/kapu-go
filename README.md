@@ -4,10 +4,10 @@
 
 A short intro about the different directories within this repository:
 
-* [/arkcoin](/kapucoin) - Coin configuration and helper functions
+* [/kapucoin](/arkcoin) - Coin configuration and helper functions
 * [/core](/core) - API to use the Kapu blockchain out of Golang
-* [/cmd/arkgopool](/cmd/kapugopool) - Client for delegate profit sharing pools
-* [/cmd/arkgoserver](/cmd/kapugoserver) - Server for delgates profit sharing pools
+* [/cmd/kapugopool](/cmd/arkgopool) - Client for delegate profit sharing pools
+* [/cmd/kapugoserver](/cmd/arkgoserver) - Server for delgates profit sharing pools
 * [/raw](/raw) - Images and other raw files
 
 You can find more information about the different functionalities in their folder.
