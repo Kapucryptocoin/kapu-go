@@ -4,10 +4,10 @@
 
 A short intro about the different directories within this repository:
 
-* [/kapucoin](/kapucoin) - Coin configuration and helper functions
+* [/arkcoin](/kapucoin) - Coin configuration and helper functions
 * [/core](/core) - API to use the Kapu blockchain out of Golang
-* [/cmd/kapugopool](/cmd/kapugopool) - Client for delegate profit sharing pools
-* [/cmd/kapugoserver](/cmd/kapugoserver) - Server for delgates profit sharing pools
+* [/cmd/arkgopool](/cmd/kapugopool) - Client for delegate profit sharing pools
+* [/cmd/arkgoserver](/cmd/kapugoserver) - Server for delgates profit sharing pools
 * [/raw](/raw) - Images and other raw files
 
 You can find more information about the different functionalities in their folder.
@@ -15,7 +15,7 @@ You can find more information about the different functionalities in their folde
 ## Why Kapu-GO
 GoLang is an open source programming language developed by Google and designed for building fast, simple and reliable software. It is not about theoretical concepts such as monads and virtual inheritance, but more about **hands-on experience**.
 
-Kapu-GO is the KAPU Archealogical Blockchain  library client implemented in GOLANG programming language. It implements all most relevant ARK functionalities to help you  **develop efficient, fast and scalable GOLANG applications built upon kAPU platform**. It provides also low level access to KAPU so you can easily build your application on top of it.
+Kapu-GO is the KAPU Archealogical Blockchain  library client implemented in GOLANG programming language. It implements all most relevant KAPU/ARK functionalities to help you  **develop efficient, fast and scalable GOLANG applications built upon kAPU platform**. It provides also low level access to KAPU so you can easily build your application on top of it.
 
 ## A library demo app: KAPUGO-GUI
 A demo client app was developed to test the goark library package dependencies. More about the demo gui client: [/cmd/kapugopool](/cmd/kapugopool). It targets delegate and basic account functionalites, plus silent mode - to be able to run automated reward payments.
@@ -25,7 +25,7 @@ https://asciinema.org/a/5yndxl794ncfpmjoqftuaiodm?t=8.
 
 ## How to install?
 ```
-$> go get github.com/kristjank/ark-go
+$> go get github.com/kapucoin/kapu-go
 ```
 
 ## How to get dependencies?
@@ -34,7 +34,7 @@ $> go get ./...
 ```
 
 ## How to get started?
-All ark-node services have available reponses have their struct representations. It's best to let the code do the speaking. Every class implementation has it's own test class. **So it's best to start learning by looking at actual test code**.
+All node services have available reponses have their struct representations. It's best to let the code do the speaking. Every class implementation has it's own test class. **So it's best to start learning by looking at actual test code**.
 
 ## Kapu-GO Client Usage
 **First call should be network selection, so all settings can initialize from the peers before going into action.**  By default MAINNET is active.
@@ -42,8 +42,8 @@ All ark-node services have available reponses have their struct representations.
 ### Init
 [GoDoc documentation available on this link](https://godoc.org/github.com/kristjank/ark-go/core)
 ```go
-import "github.com/kristjank/ark-go/core"
-var arkclient = core.NewArkClient(nil)
+import "github.com/kapucoin/kapu-go/core"
+var KAPUClient = core.NewArkClient(nil)
 ```
 
 ### Communication
@@ -54,7 +54,7 @@ params := TransactionQueryParams{Limit: 10, SenderID: senderID}
 ```
 ... and the results -  reponse is also parametrized.
 ```go
-transResponse, _, err := arkapi.ListTransaction(params)
+transResponse, _, err := kapuapi.ListTransaction(params)
 if transResponse.Success {
 		log.Println(t.Name(), "Success, returned", transResponse.Count, "transactions")
 	} else {
@@ -65,33 +65,27 @@ if transResponse.Success {
 ### Other call samples
 ```go
 //usage samples
-deleResp, _, _ := arkclient.GetDelegate(params)
+deleResp, _, _ := kapuclient.GetDelegate(params)
 
 //switch networks
-arkclient = arkclient.SetActiveConfiguration(core.DEVNET) //or core.MAINNET
+kapuclient = kapuclient.SetActiveConfiguration(core.KAPU) //or core.MAINNET
 //create and send tx
-arkapi := NewArkClient(nil)
+kapuclient := NewArkClient(nil)
 recepient := "address"
 passphrase := "pass"
 
-tx := CreateTransaction(recepient,1,"ARK-GOLang is saying whoop whooop",passphrase, "")
+tx := CreateTransaction(recepient,1,"KAPU-GOLang is saying whoop whooop",passphrase, "")
 payload.Transactions = append(payload.Transactions, tx)
-res, httpresponse, err := arkapi.PostTransaction(payload)
+res, httpresponse, err := kapuclient.PostTransaction(payload)
 ```
-## More information about ARK Ecosystem and etc
-* [ARK Ecosystem Wiki](https://github.com/ArkEcosystem/wiki)
+## More information about KAPU Ecosystem and etc
+* [KAPU Ecosystem ](https://github.com/kapucoin
 
 Please, use github issues for questions or feedback. For confidential requests or specific demands, contact us on our public channels.
 
 ## Authors
 Chris (kristjan.kosic@gmail.com), with a lot of help from FX Thoorens fx@ark.io and ARK Community
-
 Jarunik (jens@hviid.ch), with a lot of help from Chris
-
-## Support this project
-![Ark Logo](/raw/ark-logo-60x60.png)
-Ark address:``AUgTuukcKeE4XFdzaK6rEHMD5FLmVBSmHk``
-
 
 # License
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
